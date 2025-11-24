@@ -4,12 +4,12 @@ import models.Account
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
 
-    val account: Account = Account()
+
     println("Informe o nome do titular da conta: ")
     val holder: String = readln()
 
     if(holder.isNotEmpty()){
-        account.holder = holder
+        val account = Account(holder)
         println("Conta criada com sucesso")
         println("Dados da conta: ")
         println("Titular: ${account.holder}")

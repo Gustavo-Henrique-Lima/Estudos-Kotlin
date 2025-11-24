@@ -1,9 +1,8 @@
 package models
 
-class Account {
+class Account(var holder: String) {
 
     var balance: Double = 0.0
-    var holder: String = ""
 
     fun deposit(value: Double) : Unit {
         balance += value
