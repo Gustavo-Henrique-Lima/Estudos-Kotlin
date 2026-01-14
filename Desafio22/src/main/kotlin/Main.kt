@@ -1,11 +1,24 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import kotlin.random.Random
+
 fun main() {
-    val numbers = listOf<Int>(1,2,3,4,5,6,7,8,9)
-    val pars = numbers.filter { it % 2 ==0 }
-    print("A lista ")
-    numbers.forEach {
-        print("$it,")
+    print("Por favor, informe a quantidade de apostas que você deseja gerar: ")
+    val qtd: Int = readln().toInt()
+    if (qtd < 1) {
+        println("A quantidade de apostas deve ser maior do que 0")
+    } else {
+        for (i in 0 until qtd) {
+            println("Aposta ${i + 1}")
+            val game = randomGame()
+            println("Lista gerada: $game")
+        }
     }
-    print(" possui os pares: $pars")
+}
+fun randomGame(): Set<Int> {
+    val numbers = mutableSetOf<Int>()
+
+    while (numbers.size < 6) {
+        numbers.add(Random.nextInt(1, 61))
+    }
+
+    return numbers
 }
